@@ -1,4 +1,4 @@
-# obe-chromecast-test
+# chromecast-test
 
 # feed media group chromecast proof of concept.
 
@@ -6,7 +6,7 @@
 
 ## future versions will play any video like a normal reciever, but will also require a feed key, and will use chrome recievers messaging to send commands to feeds javascript sdk. ##
   
-To get the receiever demo working on your system (for editing purposes, ** if you just want to mix music with your video and have it able to be cast to chromecast devices, it is sufficient to just use our reciever id [250B0F0B], which will point to our latest working reciever, in your app (currently in development, please send us your chromecast testing device id so we can add it as a testing device)**):  
+To get the receiever demo working on your system (for editing purposes, ** if you just want to mix music with your video and have it able to be cast to chromecast devices, it is sufficient to just use our reciever id [D527AC1B], which will point to our latest working receiver, in your app.
   
 clone this repo. 
 ```console
