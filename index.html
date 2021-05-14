@@ -1,17 +1,37 @@
 <html>
-  <head>
-    <script type="text/javascript" src="//www.gstatic.com/cast/sdk/libs/caf_receiver/v3/cast_receiver_framework.js"></script>
-    <script type="text/javascript" src="/feed-media-audio-player.min.js"></script>
-
-    <script>
-      !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t,e){var n=document.createElement("script");n.type="text/javascript";n.async=!0;n.src="https://analytics-cdn.obefitness.com/analytics.js/v1/"+t+"/analytics.min.js";var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(n,a);analytics._loadOptions=e};analytics.SNIPPET_VERSION="4.1.0";
-
-        analytics.load(window.location.hostname === "obefitness.com" ? "Vfx8Q1UXv9j7F9Np7u4BddbBFOokHLHV" : "Ow9sRZMLd5SPyvFiHdyagmCzqWsffSWw");
-      }}();
-    </script>
-  </head>
-  <body>
-    <cast-media-player></cast-media-player>
-    <script src="/receiver.js"></script>
-  </body>
+<head>
+  <script type="text/javascript" src="//www.gstatic.com/cast/sdk/libs/caf_receiver/v3/cast_receiver_framework.js"></script>
+  <script type="text/javascript" src="./feed-media-audio-player.min.js"></script>
+  <style>
+  #feed-info{
+    background-color: rgba(255,255,255,.5);
+    z-index: 5;
+    padding: 1%;
+    width: 20%;
+    height: auto;
+    display: block;
+    position: absolute;
+    bottom: 5%;
+    left: 5%;
+    border-radius: 8px;
+  }
+  #feed-info *{
+    display: block;
+    font-size: smaller;
+  }
+  #artist {
+    float:left;
+    margin-right:10px;
+  }
+  </style>
+</head>
+<body>
+  <div id="feed-info">Feed Info
+    <span id="title">Title</span>
+    <span id="artist">Artist</span>
+    <span id="release">Release</span>
+  </div>
+  <cast-media-player></cast-media-player>
+  <script src="./receiver.js"></script>
+</body>
 </html>

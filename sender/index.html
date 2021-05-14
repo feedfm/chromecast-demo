@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Cast Demo</title>
+</head>
+<body>
+	<h1>feedfm - cast demo (sender)</h1>
+	<hr/>
+	<h3>click this button to cast</h3>
+	<div style="width: 50px;">
+		<google-cast-launcher id="castbutton"></google-cast-launcher>
+	</div>
+	<div>
+		<h2>feed controls</h2>
+		<button onclick="castSession.sendMessage('urn:x-cast:fm.feed.cast', {'skip':true});">Skip</button>
+		<button onclick="castSession.sendMessage('urn:x-cast:fm.feed.cast', {'pause':true});">Pause</button>
+		<button onclick="castSession.sendMessage('urn:x-cast:fm.feed.cast', {'play':true});">Play</button>
+		<button onclick="castSession.sendMessage('urn:x-cast:fm.feed.cast', {'stop':true});">Stop</button>
+		<button style="background-color: darkred; color:white" onclick="castSession.sendMessage('urn:x-cast:fm.feed.cast', {'clear':true});">Reset Client</button>
+		<div class="slidecontainer">
+			<input type="range" min="0" max="100" value="5" class="slider" id="feedRange">
+		</div>
+	</div>
+	<hr/>
+	<div style="opacity:.5">
+		<h2>video controls <span style="color:darkred">(tbd)</span></h2>
+		<button>pause</button>
+		<button>play</button>
+		<div class="slidecontainer">
+			<input type="range" min="1" max="100" value="50" class="slider" id="videoRange">
+		</div>
+		<div>
+			<h3 style="opacity:.5">video info</h3>
+			tbd
+		</div>
+		<div>
+			<h3 style="opacity:.5">feed info</h3>
+			tbd
+		</div>
+	</div>
+	<script src="cast.js"></script>
+	<script type="text/javascript">
+	window['__onGCastApiAvailable'] = function(isAvailable) {
+		if (isAvailable) {
+			initializeCastApi();
+		}
+	};
+
+	var feedVolume = document.getElementById("feedRange");
+	feedVolume.onmouseup = function () {
+		castSession.sendMessage('urn:x-cast:fm.feed.cast', {'volume':this.value});
+	}
+	</script>
+<script type="text/javascript" src="https://www.gstatic.com/cv/js/sender/v1/cast_sender.js?loadCastFramework=1"></script>
+</body>
+</html>
