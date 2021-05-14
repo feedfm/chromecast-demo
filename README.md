@@ -1,10 +1,13 @@
 # chromecast-demo
 
-# feed media group chromecast proof of concept.
+# feed media group chromecast sender and receiver.
 
-## this is meant as a proof of concept, currently it plays a given video, and a given mp3. ##
+We have created a custom chromecast receiver that will play Feed.fm music in tandem with a full screen video and its associated audio. The receiver will respond to messages that control Feed.fm music playback, such as play, pause, and change station. There is a published public receiver that can be used by Feed.fm clients [37FFD8F7], unmodified, for simple integrations, or clients can access the source code for our receiver and create their own custom receiver with their own desired functionality.
+ 
+We have created a live demo sender and receiver application. Clicking the cast button will allow you to cast a video to your device, and start playing an associated station with it. Skip, Pause, Play Stop and volume control for the feed audio stream are implemented.  We are working on a bug that when feed audio stops, the video audio stops. (for pause and stop, and momentarily during skip)
 
-## future versions will play any video like a normal reciever, but will also require a feed key, and will use chrome recievers messaging to send commands to feeds javascript sdk. ##
+The Chromecast receiver app ID, which the sender uses is: 37FFD8F7, and can be used without development chromecast IDs (published).
+Currently this demo implements a custom feed SDK
   
 To get the receiever demo working on your system (for editing purposes, ** if you just want to mix music with your video and have it able to be cast to chromecast devices, it is sufficient to just use our reciever id [37FFD8F7], which will point to our latest working receiver, in your app.
   
