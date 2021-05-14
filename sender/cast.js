@@ -1,6 +1,6 @@
 var castSession;
 var initializeCastApi = function() {
-  let applicationId = 'D527AC1B';
+  let applicationId = '37FFD8F7';
   cast.framework.CastContext.getInstance().setOptions({
     receiverApplicationId: applicationId,
     autoJoinPolicy: chrome.cast.AutoJoinPolicy.ORIGIN_SCOPED

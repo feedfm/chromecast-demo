@@ -38,7 +38,7 @@
 			tbd
 		</div>
 	</div>
-	<script src="cast.js"></script>
+	<script src="./cast.js"></script>
 	<script type="text/javascript">
 	window['__onGCastApiAvailable'] = function(isAvailable) {
 		if (isAvailable) {
@@ -49,7 +49,7 @@
 	var feedVolume = document.getElementById("feedRange");
 	feedVolume.onmouseup = function () {
 		castSession.sendMessage('urn:x-cast:fm.feed.cast', {'volume':this.value});
-	}
+	};
 	</script>
 <script type="text/javascript" src="https://www.gstatic.com/cv/js/sender/v1/cast_sender.js?loadCastFramework=1"></script>
 </body>
