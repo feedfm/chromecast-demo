@@ -74,7 +74,7 @@ context.addCustomMessageListener(FEEDFM, event => {
       let stationPromise = feedPlayer.getStations();
       if (data.stations.name)
       {
-        Promise.resolve(stationPromise).then(stations => {
+        stationPromise.then(stations => {
           let filteredStations = stations.filter(y=>y.name.includes(data.stations.name));
           // Chromecast has a limit on their message sizes, so best to limit or filter on the receiver end before
           // sending the message back
@@ -83,7 +83,7 @@ context.addCustomMessageListener(FEEDFM, event => {
       }
       else
       {
-        Promise.resolve(stationPromise).then(stations => {
+        stationPromise.then(stations => {
           context.sendCustomMessage(FEEDFM, event.senderId ,{"stations":stations.splice(0,100)});
         }); 
       }  
