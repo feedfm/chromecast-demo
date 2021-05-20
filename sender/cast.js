@@ -1,18 +1,23 @@
 var castSession;
+var player;
+var playerController;
+
 var initializeCastApi = function() {
   let applicationId = '37FFD8F7';
   cast.framework.CastContext.getInstance().setOptions({
     receiverApplicationId: applicationId,
     autoJoinPolicy: chrome.cast.AutoJoinPolicy.ORIGIN_SCOPED
   });
-  cast.framework.CastContext.getInstance().addEventListener('sessionstatechanged', startPlay);
+  cast.framework.CastContext.getInstance().addEventListener(cast.framework.CastContextEventType.SESSION_STATE_CHANGED, startPlay);
 };
 var startPlay = function() {
+  console.log("connected");
   castSession = cast.framework.CastContext.getInstance().getCurrentSession();
-
   var currentMediaURL = 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4';
   var token = 'demo';
   var secret = 'demo';
+  var clientId = '';
+  var options = {'debug':true}
   var stationName = "Station Two";
   var contentType =  'video/mp4';
 
@@ -30,10 +35,14 @@ var startPlay = function() {
     console.log(jMessage);
   });
 
-  castSession.sendMessage('urn:x-cast:fm.feed.cast', {'initialize':{'token':token,'secret':secret}, 'volume':5});
+  castSession.sendMessage('urn:x-cast:fm.feed.cast', {'initialize':{'token':token,'secret':secret, 'clientId':clientId}, 'volume':5});
   castSession.sendMessage('urn:x-cast:fm.feed.cast', {'stations':{"name":stationName}});
   castSession.sendMessage('urn:x-cast:fm.feed.cast', {'station':stationId});
   castSession.sendMessage('urn:x-cast:fm.feed.cast', {'play':true});
+
+  player = new cast.framework.RemotePlayer();
+  playerController = new cast.framework.RemotePlayerController(player);
+
 
 };
 
