@@ -49,6 +49,12 @@ context.addCustomMessageListener(FEEDFM, event => {
     {
       feedPlayer.setVolume(data.volume);
     }
+    if (data.videovolume)
+    {
+       var volumeRequest = new cast.framework.messages.VolumeRequestData();
+       volumeRequest.volume.level = data.videovolume; // 0 - 1
+       playerManager.sendLocalMediaRequest(volumeRequest);
+    }
     if (data.play)
     {
       feedPlayer.play();
