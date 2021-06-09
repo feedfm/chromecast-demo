@@ -45,11 +45,11 @@ context.addCustomMessageListener(FEEDFM, event => {
     {
       feedPlayer.session._deleteStoredCid();
     }
-    if (data.volume)
+    if (data.volume !== undefined)
     {
       feedPlayer.setVolume(data.volume);
     }
-    if (data.videovolume)
+    if (data.videovolume !== undefined)
     {
        var volumeRequest = new cast.framework.messages.VolumeRequestData();
        volumeRequest.volume.level = data.videovolume; // 0 - 1
