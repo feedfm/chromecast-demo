@@ -13,7 +13,7 @@ var initializeCastApi = function() {
 var startPlay = function() {
   console.log("connected");
   castSession = cast.framework.CastContext.getInstance().getCurrentSession();
-  var currentMediaURL = 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4';
+  var currentMediaURL = 'https://demo.feed.fm/cast/TrimmedWorkout.mp4';
   var token = 'demo';
   var secret = 'demo';
   var clientId = '';
