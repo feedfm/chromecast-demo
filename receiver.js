@@ -33,6 +33,10 @@ context.addCustomMessageListener(FEEDFM, event => {
     {
       var feedInitialize = data.initialize;
       feedPlayer = new Feed.Player(feedInitialize.token, feedInitialize.secret, feedInitialize.options || {});
+      if (feedInitialize.clientId)
+      {
+        feedPlayer.session._setStoredCid(feedInitialize.clientId);
+      }
       // feedPlayer.on('all', function(fEvent) {
       //   let sendText = 'player triggered event \'' + fEvent + '\' with arguments:';
       //   context.sendCustomMessage(FEEDFM, event.senderId ,sendText);
