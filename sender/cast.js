@@ -1,6 +1,7 @@
 var castSession;
 var player;
 var playerController;
+var feedPlayer = new Feed.Player();
 
 var initializeCastApi = function() {
   let applicationId = '37FFD8F7';
@@ -16,7 +17,7 @@ var startPlay = function() {
   var currentMediaURL = 'https://demo.feed.fm/cast/TrimmedWorkout.mp4';
   var token = 'demo';
   var secret = 'demo';
-  var clientId = '';
+  var clientId = feedPlayer.session._getStoredCid();
   var options = {'debug':true}
   var stationName = "Station Two";
   var contentType =  'video/mp4';
