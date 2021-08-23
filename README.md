@@ -3,7 +3,7 @@
 # feed media group chromecast sender and receiver.
 
 
-We have created a custom chromecast receiver that will play Feed.fm music in tandem with a full screen video and its associated audio. The receiver will respond to messages that control Feed.fm music playback, such as play, pause, and change station. There is a published public receiver that can be used by Feed.fm clients [37FFD8F7] (for an example sender application, https://demo.feed.fm/cast/demo/sender/), unmodified, for simple integrations, or clients can access the source code for our receiver and create their own custom receiver with their own desired functionality.
+We have created a custom chromecast receiver that will play Feed.fm music in tandem with a full screen video and its associated audio. The receiver will respond to messages that control Feed.fm music playback, such as play, pause, and change station. There is a published public receiver that can be used by Feed.fm clients [37FFD8F7] (for an example sender application, https://demo.feed.fm/cast/demo/sender/index.html), unmodified, for simple integrations, or clients can access the source code for our receiver and create their own custom receiver with their own desired functionality.
  
 We have created a live demo sender and receiver application. Clicking the cast button will allow you to cast a video to your device, and start playing an associated station with it. Skip, Pause, Play Stop and volume control for the feed audio stream are implemented.  We are working on a bug that when feed audio stops, the video audio stops. (for pause and stop, and momentarily during skip)
 
