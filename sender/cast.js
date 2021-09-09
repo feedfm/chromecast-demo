@@ -1,7 +1,7 @@
 var castSession;
 var player;
 var playerController;
-var feedPlayer = new Feed.Player();
+var feedPlayer = new Feed.Player('demo','demo');
 
 var initializeCastApi = function() {
   let applicationId = '37FFD8F7';
@@ -18,6 +18,8 @@ var startPlay = function() {
   var token = 'demo';
   var secret = 'demo';
   var clientId = feedPlayer.session._getStoredCid();
+    // var clientId = parseInt(Math.random() * (100000000000));
+
   var options = {'debug':true}
   var stationName = "Station Two";
   var contentType =  'video/mp4';
@@ -32,13 +34,13 @@ var startPlay = function() {
     jMessage = JSON.parse(message);
     if (jMessage.stations){
       stationId = jMessage.stations[0].id;
+      castSession.sendMessage('urn:x-cast:fm.feed.cast', {'station':stationId});
     }
     console.log(jMessage);
   });
 
-  castSession.sendMessage('urn:x-cast:fm.feed.cast', {'initialize':{'token':token,'secret':secret, 'clientId':clientId}, 'volume':5});
+  castSession.sendMessage('urn:x-cast:fm.feed.cast', {'initialize':{'token':token,'secret':secret, 'options':options, 'clientId':clientId}, 'volume':5});
   castSession.sendMessage('urn:x-cast:fm.feed.cast', {'stations':{"name":stationName}});
-  castSession.sendMessage('urn:x-cast:fm.feed.cast', {'station':stationId});
   castSession.sendMessage('urn:x-cast:fm.feed.cast', {'play':true});
 
   player = new cast.framework.RemotePlayer();

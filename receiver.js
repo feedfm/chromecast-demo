@@ -32,7 +32,7 @@ context.addCustomMessageListener(FEEDFM, event => {
     if (data.initialize)
     {
       var feedInitialize = data.initialize;
-      feedPlayer = new Feed.Player(feedInitialize.token, feedInitialize.secret, feedInitialize.options || {});
+      feedPlayer = Feed.resumable(60000) || new Feed.Player(feedInitialize.token, feedInitialize.secret, feedInitialize.options || {});
       if (feedInitialize.clientId)
       {
         feedPlayer.session._setStoredCid(feedInitialize.clientId);
@@ -76,8 +76,16 @@ context.addCustomMessageListener(FEEDFM, event => {
       feedPlayer.skip();
     }
     if (data.station)
-    {
-      feedPlayer.setStationId(data.station);
+    {    
+      if (data.timeskip)
+      {
+        feedPlayer.setStationId(data.station, data.timeskip);
+      }
+      else
+      {
+        feedPlayer.setStationId(data.station);
+      }
+      
     }
     if (data.stations)
     {
