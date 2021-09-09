@@ -11,7 +11,7 @@ var initializeCastApi = function() {
   });
   cast.framework.CastContext.getInstance().addEventListener(cast.framework.CastContextEventType.SESSION_STATE_CHANGED, startPlay);
 };
-var startPlay = function() {
+var startPlay = async function() {
   console.log("connected");
   castSession = cast.framework.CastContext.getInstance().getCurrentSession();
   var currentMediaURL = 'https://demo.feed.fm/cast/TrimmedWorkout.mp4';
