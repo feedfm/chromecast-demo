@@ -17,7 +17,8 @@ var startPlay = function() {
   var currentMediaURL = 'https://demo.feed.fm/cast/TrimmedWorkout.mp4';
   var token = 'demo';
   var secret = 'demo';
-  var clientId = feedPlayer.session._getStoredCid();
+  // var clientId = feedPlayer.session._getStoredCid();
+  var clientId = await feedPlayer.session._getClientId();
     // var clientId = parseInt(Math.random() * (100000000000));
 
   var options = {'debug':true}
