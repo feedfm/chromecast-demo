@@ -1,7 +1,7 @@
 var castSession;
 var player;
 var playerController;
-var feedPlayer = new Feed.Player('demo','demo');
+// var feedPlayer = new Feed.Player('demo','demo');
 
 var initializeCastApi = function() {
   let applicationId = '37FFD8F7';
@@ -18,7 +18,7 @@ var startPlay = async function() {
   var token = 'demo';
   var secret = 'demo';
   // var clientId = feedPlayer.session._getStoredCid();
-  var clientId = await feedPlayer.session._getClientId();
+  var clientId = await Feed.getClientId();
     // var clientId = parseInt(Math.random() * (100000000000));
 
   var options = {'debug':true}
