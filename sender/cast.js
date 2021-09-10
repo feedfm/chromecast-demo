@@ -1,7 +1,7 @@
 var castSession;
 var player;
 var playerController;
-// var feedPlayer = new Feed.Player('demo','demo');
+var feedPlayer = new Feed.Player('demo','demo');
 
 var initializeCastApi = function() {
   let applicationId = '37FFD8F7';
