@@ -156,4 +156,5 @@ the functions available to send messages are
 * skip --skip feed
 * station -- set the station ID (youll find that out from the stations object)
   * you can also supply timeskip along with the station object, if you are a first play station and you want to start at a specific time within the station, for example, starting 5 minutes in, so timeskip: 300, skips the first two, two-minute songs, and plays the third song at one minute in.
+  * ```castSession.sendMessage('urn:x-cast:fm.feed.cast', {'station':stationId, 'timeskip':300});```
 * stations -- get a list of stations, if you supply stations with an object inside specifying name, then if will filter based on that name before sending back, since chromecast has a limit on the size of the messages it can send back. if your stations object is really large, it will send back only 100 stations.
