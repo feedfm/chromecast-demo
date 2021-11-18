@@ -1,15 +1,28 @@
-const TRACK_MEDIA_PROGRESS_INTERVAL = 45
+const TRACK_MEDIA_PROGRESS_INTERVAL = 45;
 
 const context = cast.framework.CastReceiverContext.getInstance();
 
-const playerManager = context.getPlayerManager()
+const playerManager = context.getPlayerManager();
 
 var feedPlayer;
 
-let lastCurrentMediaTime = 0
-let config = { events: {} }
+let lastCurrentMediaTime = 0;
+let config = { events: {} };
+let feedInfoShow = "ALWAYS";
 
+function hideInfo(x){
+  document.getElementById("feed-info").style.opacity = 0
+}
+function toggleInfo(x){
+  document.getElementById("feed-info").style.transition ="opacity 1s"
+  document.getElementById("feed-info").style.opacity = 1
+  setTimeout(hideInfo, 3000);
+}
 function play_started(x){
+  if (feedInfoShow === "SOMETIMES")
+  {
+    toggleInfo();
+  }
   let audio_file = x.audio_file;
   let artist = audio_file.artist.name;
   let release = audio_file.release.title;
@@ -48,6 +61,29 @@ context.addCustomMessageListener(FEEDFM, event => {
     if (data.clear)
     {
       feedPlayer.session._deleteStoredCid();
+    }
+    if (data.style)
+    {
+      document.getElementById("feed-info").style = data.style;
+    }
+    if (data.infoshow)
+    {
+      feedInfoShow = data.infoshow;
+
+      if (feedInfoShow === "NEVER")
+      {
+        document.getElementById("feed-info").style = "display: none;";
+      }
+      else
+      {
+      if (feedInfoShow === "SOMETIMES")
+        {
+          toggleInfo();
+        }
+        document.getElementById("feed-info").style.display = "block";
+        document.getElementById("feed-info").style.opacity = 1;
+        
+      }
     }
     if (data.volume !== undefined)
     {
