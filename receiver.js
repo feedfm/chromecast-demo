@@ -45,7 +45,7 @@ context.addCustomMessageListener(FEEDFM, event => {
     if (data.initialize)
     {
       var feedInitialize = data.initialize;
-      feedPlayer = Feed.resumable(60000) || new Feed.Player(feedInitialize.token, feedInitialize.secret, feedInitialize.options || {});
+      feedPlayer = new Feed.Player(feedInitialize.token, feedInitialize.secret, feedInitialize.options || {});
       if (feedInitialize.clientId)
       {
         feedPlayer.session._setStoredCid(feedInitialize.clientId);
