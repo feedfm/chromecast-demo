@@ -15,7 +15,7 @@ To get the receiever demo working on your system (for editing purposes, ** if yo
   
 clone this repo. 
 ```console
-foo@bar:~$ git clone https://github.com/feedfm/chromecast_work.git
+foo@bar:~$ git clone https://github.com/feedfm/chromecast_demo.git
 ```
   
 install any node modules needed for the later steps   
