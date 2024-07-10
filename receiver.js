@@ -37,7 +37,6 @@ function play_started(x){
 }
 
 
-
 const FEEDFM = 'urn:x-cast:fm.feed.cast';
 context.addCustomMessageListener(FEEDFM, event => {
   if (event.data){
@@ -91,9 +90,9 @@ context.addCustomMessageListener(FEEDFM, event => {
     }
     if (data.videovolume !== undefined)
     {
-       var volumeRequest = new cast.framework.messages.VolumeRequestData();
+      var volumeRequest = new cast.framework.messages.VolumeRequestData();
        volumeRequest.volume.level = data.videovolume; // 0 - 1
-       playerManager.sendLocalMediaRequest(volumeRequest);
+      playerManager.sendLocalMediaRequest(volumeRequest);
     }
     if (data.play)
     {
@@ -141,16 +140,9 @@ context.addCustomMessageListener(FEEDFM, event => {
           context.sendCustomMessage(FEEDFM, event.senderId ,{"stations":stations.splice(0,100)});
         }); 
       }  
-
     }
-
   }
-
-
 });
-
-
-
 
 const options = new cast.framework.CastReceiverOptions();
 context.start(options)
