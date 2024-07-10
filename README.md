@@ -15,7 +15,7 @@ To get the receiever demo working on your system (for editing purposes, ** if yo
   
 clone this repo. 
 ```console
-foo@bar:~$ git clone https://github.com/feedfm/chromecast_demo.git
+foo@bar:~$ git clone https://github.com/feedfm/chromecast-demo.git
 ```
   
 install any node modules needed for the later steps   
@@ -26,7 +26,7 @@ foo@bar:~$ npm install -g ngrok
   
 cd in to the repo. 
 ```console
-foo@bar:~$ cd chromecast_work
+foo@bar:~$ cd chromecast-demo
 ```
 
 start up http-server, and optionally, ngrok (if your http-server isnt 8080, you will need to change the 8080 part) to get it access to the web (or put this receiver somewhere with a public ip)
